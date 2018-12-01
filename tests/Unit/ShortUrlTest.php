@@ -1,5 +1,4 @@
 <?php
-
 namespace Tests\Unit;
 
 use Tests\TestCase;
@@ -24,7 +23,7 @@ class ShortUrlTest extends TestCase {
      * Test URL size
      * @test
      */
-    public function testLenght(){
+    public function testLenght() {
     	$url = ShortUrl::get();
     	
     	//string size

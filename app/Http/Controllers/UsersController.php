@@ -19,13 +19,13 @@ class UsersController extends Controller {
      */
     public function add(Request $request) {
         try {
-            // capture id
+            //capture user id
             $id = $request->input('id');
 
-            // save user
+            //save user
             $result = (new User())->saveUser($id);
 
-            // return user
+            //return user
             return $result;
         } catch (Exception $e) {
             return $e->getMessage();

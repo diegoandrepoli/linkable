@@ -25,10 +25,10 @@ class UrlsController extends Controller {
      */
     public function add(Request $request, $userId) {
         try {
-            // capture URL
+            //capture request URL parameter
             $url = $request->input('url');
 
-            // add URL
+            //add database URL and on cache service
             return (new Url())->addUrlCached($url, $userId);
         } catch (\Exception $e) {
             return ApiResult::get($e->getCode(), $e->getMessage());
@@ -36,7 +36,7 @@ class UrlsController extends Controller {
     }
 
     /**
-     * Get URL stats
+     * Get URL stats by id
      * @param Request $request
      * @param string $id
      * @return object
@@ -46,7 +46,7 @@ class UrlsController extends Controller {
     }
 
     /**
-     * Remove system URL
+     * Remove URL by id
      * @param Request $request
      * @param string $id
      */
@@ -59,7 +59,7 @@ class UrlsController extends Controller {
     }
 
     /**
-     * Get stats
+     * Get URL stats
      * @return object
      */
     public function stats() {

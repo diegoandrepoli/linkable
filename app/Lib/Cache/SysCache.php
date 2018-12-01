@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Lib\Cache;
 
 /**
@@ -9,16 +8,16 @@ namespace App\Lib\Cache;
 class SysCache {
 	
 	/**
-	 * Engine cache
+	 * Engine cache name
 	 */
 	const ENGINE = 'redis';	
 	
 	/**
-	 * Write contente on cache
+	 * Write content on cache
 	 * @param string $key
 	 * @param string $content
 	 */
-	public static function write($key, $content){
+	public static function write($key, $content) {
 		\Cache::store(self::ENGINE)->put($key, $content, 10);
 	}
 		
@@ -27,7 +26,7 @@ class SysCache {
 	 * @param string $key
 	 * @return object
 	 */
-	public static function red($key){
+	public static function red($key) {
 		return \Cache::store(self::ENGINE)->get($key);
 	}
 	
@@ -35,7 +34,7 @@ class SysCache {
 	 * Invalid cache node
 	 * @param string $key
 	 */
-	public static function remove($key){
+	public static function remove($key) {
 		\Cache::store(self::ENGINE)->forget($key);		
 	}
 }

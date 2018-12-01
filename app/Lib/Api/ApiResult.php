@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Lib\Api;
 
 /**
@@ -24,8 +23,7 @@ class ApiResult {
     const MESSAGE = 'message';
 
     /**
-     * Format error message
-     *
+     * Format API error message by error code, messa and type
      * @param string $code
      * @param string $message
      * @param string $type

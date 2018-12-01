@@ -1,5 +1,8 @@
 #!/bin/bash
 
+##
+## Execute Laravel migrations on Docker exec command
+##
 migration(){
    echo "Executing data migration..."
    echo
@@ -7,6 +10,9 @@ migration(){
    echo
 }
 
+##
+## Execute Laravel rollback migration on Docker exec command
+##
 rollback(){
    echo "Execute data rolback..."
    echo
@@ -14,12 +20,18 @@ rollback(){
    echo
 }
 
+##
+## Execute Laravel tests on PHP Unit
+##
 tests(){
   echo "Execute unit testes..."
   echo
   docker exec -it laradock_php-fpm_1 php vendor/bin/phpunit
 }
 
+##
+## Connect to bash Laravel application
+##
 dbash(){
   echo "Connect on docker bash"
   echo
@@ -27,16 +39,23 @@ dbash(){
   docker-compose exec workspace bash
 }
 
+##
+## Method on invalid script option
+##
 invalid(){
    echo "Invalid option :("
    echo
 }
 
+##
+## Exit the script
+##
 dexit(){
   echo "Bye :)"
   echo
 }
 
+## print to friendly user options 
 clear
 echo
 echo "Welcome to system install"
@@ -51,8 +70,10 @@ echo "4 - Conect the docker bash"
 echo "5 - Exit"
 echo
 
+## read user option
 read option
 
+## match the option selected
 if [ "$option" = 1 ];then
   migration
 elif [ "$option" = 2 ];then

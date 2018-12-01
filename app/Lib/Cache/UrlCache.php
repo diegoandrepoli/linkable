@@ -1,9 +1,8 @@
-<?php 
-
+<?php
 namespace App\Lib\Cache;
 
 /**
- * Implement cache on URL
+ * Implement cache on URL to use syscache base cache
  * @author Diego Andre Poli <diegoandrepoli@gmail.com>
  */
 class UrlCache extends SysCache {
@@ -17,8 +16,7 @@ class UrlCache extends SysCache {
 	}
 	
 	/**
-	 * Get id from URL
-	 * 
+	 * Get paramenter id from URL
 	 * @param array $url
 	 * @return string
 	 */
@@ -27,7 +25,7 @@ class UrlCache extends SysCache {
 	}
 	
 	/**
-	 * Set URL in system cache 
+	 * Set URL in cache system 
 	 * @param object $url
 	 */
 	public static function set($url) {

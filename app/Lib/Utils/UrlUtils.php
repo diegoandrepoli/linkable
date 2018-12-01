@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Lib\Utils;
 
 use App\Url;
@@ -17,13 +16,13 @@ class UrlUtils {
      * @return string
      */
     public static function getUrlByResult($result) {
-        return (! empty($result['url'])) ? $result['url'] : null;
+        return (!empty($result['url'])) ? $result['url'] : null;
     }
 
     /**
-     * check URL result
+     * Check URL result
      * @param URL $url
-     * @throws NotFoundHttpException - generated on URL is null
+     * @throws NotFoundHttpException, generated on is null URL
      */
     public static function isEmptyUrl($url) {
         if (self::getUrlByResult($url) == null) {
@@ -32,7 +31,7 @@ class UrlUtils {
     }
 
     /**
-     * Encapsulate data
+     * Generate stats result
      * @param integer $hits
      * @param integer $urlCount
      * @param array $topUrls

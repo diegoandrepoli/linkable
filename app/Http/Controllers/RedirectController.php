@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Url;
@@ -23,7 +22,7 @@ class RedirectController extends Controller {
 		//get url from redirect and hit increment
 		$url = (new Url())->getUrlForRedirect($id);
 		 				
-		//redirect
+		//redirect on type 301
 		return Redirect::to(UrlUtils::getUrlByResult($url), 301);
 	}	
 }

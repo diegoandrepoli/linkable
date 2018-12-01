@@ -1,5 +1,4 @@
 <?php
-
 namespace Tests\Feature;
 
 use Tests\TestCase;
@@ -17,7 +16,7 @@ class UrlTest extends TestCase {
      * Create user API test
      * @test
      */	
-    public function testCreateUrlApi(){        	   
+    public function testCreateUrlApi() {        	   
     	//create input data
     	$userId = rand(); 		   	
     	$userInput = ['id' => $userId];
@@ -38,7 +37,7 @@ class UrlTest extends TestCase {
      * Delete user API test
      * @test
      */
-    public function testDeleteUrlApi(){
+    public function testDeleteUrlApi() {
     	//create input data
     	$userId = rand();
     	$userInput = ['id' => $userId];

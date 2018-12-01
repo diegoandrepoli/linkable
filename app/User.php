@@ -30,9 +30,7 @@ class User extends Model {
 	  */
 	 public function saveUser($id) {	 		 	
 	 	$this->id = $id;	 	
-	 	$this->save();	 	
-	 	
-	 	return ['id' => $id ];
+	 	return $this->save();
 	 }
 	 
 	 /**
@@ -40,7 +38,6 @@ class User extends Model {
 	  * @param string $id
 	  */
 	 public function deleteById($id) {
-	 	$user = self::find($id);	
-	 	$user->delete();
+	 	self::find($id)->delete();
 	 }
 }
