@@ -16,7 +16,7 @@ class ShortUrlTest extends TestCase {
      * @test
      */
     public function testGetUrl() {    	
-    	$url = ShortUrl::get();
+        $url = ShortUrl::get();
         $this->assertNotEmpty($url);      
     }
 

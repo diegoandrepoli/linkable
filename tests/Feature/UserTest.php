@@ -1,3 +1,4 @@
+
 <?php
 
 namespace Tests\Feature;
@@ -16,8 +17,7 @@ class UserTest extends TestCase {
      * Create user API test
      * @test
      */	
-    public function testUserApi(){
-    
+    public function testUserApi() {    
     	//create input data
     	$id = rand(); 		   	
     	$input = ['id' => $id];    	    	
@@ -33,7 +33,7 @@ class UserTest extends TestCase {
      * Delete user API test
      * @test
      */  
-    public function testDeleteUrlApi(){
+    public function testDeleteUrlApi() {
     	//create imput data
     	$id = rand();
     	$input = ['id' => $id];
@@ -41,7 +41,7 @@ class UserTest extends TestCase {
     	//insert user
     	$response = $this->json('POST', '/users', $input);
     	
-  		//delete user
+  	     //delete user
     	$response = $this->json('DELETE', sprintf('/user/%s', $id), []);
     	
     	//check response

@@ -6,7 +6,7 @@ namespace App\Lib\Url;
  * This class generate short url paramter for url encoded
  * @author Diego Andre Poli <diegoandrepoli@gmail.com>
  */
-class ShortUrl{
+class ShortUrl {
 	
 	/**
 	 * String delimiter

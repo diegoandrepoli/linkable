@@ -57,7 +57,7 @@ class Url extends Model {
 	  * User relationship
 	  * @return object HasOne
 	  */
-	 public function user_id(){
+	 public function user_id() {
 	 	return $this->belongsTo('App\User');
 	 }
 	 
@@ -65,7 +65,7 @@ class Url extends Model {
 	  * Get hits
 	  * @return object
 	  */
-	 public function getHits(){
+	 public function getHits() {
 	 	return self::sum(self::ID);
 	 }	 	 	 
 	 
@@ -73,17 +73,15 @@ class Url extends Model {
 	  * Get hits by user
 	  * @return object
 	  */
-	 public function getHitsByUser($userId){
-	 	return self::select(self::HITS)
-			->where(self::USER_ID, '=', $userId)
-	 		->sum(self::HITS);
+	 public function getHitsByUser($userId) {
+	 	return self::select(self::HITS)->where(self::USER_ID, '=', $userId)->sum(self::HITS);
 	 }	 
 	 
 	 /**
 	  * Get URL count
 	  * @return integer
 	  */
-	 public function getUrlCount(){
+	 public function getUrlCount() {
 	 	return self::select(self::ID)->count();	
 	 }
 	 
@@ -91,10 +89,8 @@ class Url extends Model {
 	  * Get URL count by user id
 	  * @return integer
 	  */
-	 public function getUrlCountByUserId($userId){	 
-	 	return self::select(self::ID)
-	 		->where(self::USER_ID, '=', $userId)
-	 		->count();
+	 public function getUrlCountByUserId($userId) {	 
+	 	return self::select(self::ID)->where(self::USER_ID, '=', $userId)->count();
 	 }
 	 
 	 /**
@@ -102,23 +98,22 @@ class Url extends Model {
 	  * lockForUpdate: prevent concurrency
 	  * @param integer $id
 	  */
-	 public function incrementHit($id){
+	 public function incrementHit($id) {
 	     $this->whereId($id)->lockForUpdate()->increment('hits');
 	 }
 	 
 	 /**
 	  * Check is short URL
 	  */
-	 public function isShortUrl($sh){
-	     return $this->where('shortUrl', $sh)
-	     ->first();
+	 public function isShortUrl($sh) {
+	     return $this->where('shortUrl', $sh)->first();
 	 }
 	 
 	 /**
 	  * Get URL by id
 	  * @param string $id
 	  */
-	 public function deleteById($id){
+	 public function deleteById($id) {
 	     $url = self::find($id);
 	     $url->delete();
 	 }
@@ -126,7 +121,7 @@ class Url extends Model {
 	 /**
 	  * Get URL by id
 	  */
-	 public function getById($id){
+	 public function getById($id) {
 	     return self::find($id);
 	 }
 	 
@@ -134,7 +129,7 @@ class Url extends Model {
 	  * Get top URLs
 	  * @return object
 	  */
-	 public function getTopUrls(){
+	 public function getTopUrls() {
 	 	return self::select([self::ID, self::HITS, self::URL, self::SHORTURL])
 	 		->limit(10)
 	 		->orderBy(self::ID, 'DESC')
@@ -145,7 +140,7 @@ class Url extends Model {
 	  * Get top URLs by user
 	  * @return object
 	  */
-	 public function getTopUrlsByUserId($userId){
+	 public function getTopUrlsByUserId($userId) {
 	 	return self::select([self::ID, self::HITS, self::URL, self::SHORTURL])
 	 		->where(self::USER_ID, '=', $userId)
 	 		->limit(10)
@@ -157,7 +152,7 @@ class Url extends Model {
 	  * Get stats
 	  * @return object
 	  */
-	 public function getStats(){
+	 public function getStats() {
 	 	return $this->statsResult(
 	 		$this->getHits(),
 	 		$this->getUrlCount(),
@@ -169,7 +164,7 @@ class Url extends Model {
 	  * Get stats by user id
 	  * @return object
 	  */
-	 public function getStatsByUserId($userId){
+	 public function getStatsByUserId($userId) {
 	 	return $this->statsResult(
 	 		$this->getHitsByUser($userId),
 	 		$this->getUrlCountByUserId($userId),
@@ -181,7 +176,7 @@ class Url extends Model {
 	  * Delete url from cache and database
 	  * @param integer $id
 	  */
-	 public function deleteByIdCached($id){
+	 public function deleteByIdCached($id) {
 	 	//delete item from database
 	 	$this->deleteById($id);
 	 	
@@ -210,7 +205,7 @@ class Url extends Model {
 	  * @param integer $userId
 	  * @return Url
 	  */
-	 public function addUrlCached($url, $userId){
+	 public function addUrlCached($url, $userId) {
 	 	//add url
 	 	$result = $this->addUrl($url, $userId);
 	 	
@@ -222,7 +217,7 @@ class Url extends Model {
 	 /**
 	  * Get URL by id limited on first URL
 	  */
-	 public function getUrlById($id){
+	 public function getUrlById($id) {
 	 	return self::select('url')
 	 		->where('id', '=', $id)
 	 		->limit(1)
@@ -232,7 +227,7 @@ class Url extends Model {
 	 /**
 	  * Get shorted paramenter for URL
 	  */
-	 public function shortUrlGen($count){	 	
+	 public function shortUrlGen($count) {	 	
 	 	//generate URL parameter	 
 	 	$sh = ShortUrl::get();	
 	 	
@@ -252,7 +247,7 @@ class Url extends Model {
 	  * @param integer $id
 	  * @return object
 	  */
-	 public function getUrlForRedirect($id){
+	 public function getUrlForRedirect($id) {
 	 	//get URL cache
 	 	$url = UrlCache::get($id);
 	 	
@@ -269,5 +264,4 @@ class Url extends Model {
 	 	
 	 	return $url;
 	 }
-	 
 }

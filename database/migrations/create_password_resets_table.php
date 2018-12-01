@@ -9,6 +9,7 @@ use Illuminate\Database\Migrations\Migration;
  * @author Diego Andre Poli <diegoandrepoli@gmail.com>
  */
 class CreatePasswordResetsTable extends Migration {
+    
     /**
      * Run the up migrations.
      * @return void

@@ -28,7 +28,7 @@ class User extends Model {
 	  * @param string $id
 	  * @return array
 	  */
-	 public function saveUser($id){	 		 	
+	 public function saveUser($id) {	 		 	
 	 	$this->id = $id;	 	
 	 	$this->save();	 	
 	 	
@@ -39,7 +39,7 @@ class User extends Model {
 	  * Delete user by id
 	  * @param string $id
 	  */
-	 public function deleteById($id){
+	 public function deleteById($id) {
 	 	$user = self::find($id);	
 	 	$user->delete();
 	 }

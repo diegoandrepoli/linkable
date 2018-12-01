@@ -4,7 +4,7 @@
  * Custom SQL utils
  * @author Diego Andre Poli <diegoandrepoli@gmail.com>
  */
-class SqlUtils{
+class SqlUtils {
 	
 	/**
 	 * Equals SQL delimiter
